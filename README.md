@@ -1,24 +1,33 @@
-# README
+## Install
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Clone the repository
+bash
+git clone https://github.com/LeenaDev32/rails_task.git
+cd rails_task
 
-Things you may want to cover:
+### Check your Ruby version
+bash
+ruby -v
 
-* Ruby version
-2.6.0
-* System dependencies
+The ouput should start with something like `ruby 3.0.2
 
-* Configuration
+If not, install the right ruby version using rvm (it could take a while):
+bash
+rvm install "ruby-3.0.2"
 
-* Database creation
+### Install dependencies
 
-* Database initialization
+Using [Bundler](https://github.com/bundler/bundler):
+bash
+bundle
 
-* How to run the test suite
+### Update database.yml file 
+In database.yml file, edit the database configuration as required.
+bash
+rails db:create 
+rails db:migrate 
+rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Serve
+rails s
+And now you can visit the site with the URL http://localhost:3000/
