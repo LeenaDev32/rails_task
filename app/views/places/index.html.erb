@@ -1,0 +1,29 @@
+<ul class="nav justify-content-center">
+<li class="nav-item">
+<%= link_to 'Add Place', new_place_path %>
+</li>
+</ul>
+<br>
+<table class="table">
+<thead>
+    <tr>
+      <th scope="col">Place Name</th>
+      <th scope="col">Node Name</th>
+      <th scope="col">Company Id</th>
+      <th colspan="5"></th>
+    </tr>
+</thead>
+<tbody>
+<% @places.each do |place| %>
+  <tr>
+      <td><%= place.place_name %></td>
+      <td><%= place.node_name %></td>      
+      <td><%= place.company_id %></td>
+      <td><%= link_to 'Show', place %></td>
+      <td><%= link_to 'Edit', edit_place_path(place) %></td>
+      <td><%= link_to 'Delete', place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+</tbody>
+</table>
+

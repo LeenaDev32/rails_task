@@ -1,0 +1,18 @@
+<h1>Add Region</h1>
+<%= form_for @region do |form| %>
+  <% if @region.errors.any? %>
+  <div id="error_explanation">
+  <h2>
+  <%= pluralize(@region.errors.count, "error") %> prohibited this billing from being saved:
+  </h2>
+  <ul>
+<% @region.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+   <% end %>
+   </ul>
+    </div>
+<% end %>
+    
+<%= form.submit "Save" %>
+  <button><%= link_to 'Cancel', region, method: :delete, data: { confirm: 'Are you sure?' } %></button   >
+<% end %>

@@ -1,0 +1,29 @@
+<ul class="nav justify-content-center">
+<li class="nav-item">
+<%= link_to 'Add Company', new_company_path %>
+</li>
+</ul>
+<br>
+<table class="table">
+<thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Postcode</th>
+      <th scope="col">Active</th>
+      <th colspan="5"></th>
+    </tr>
+</thead>
+<tbody>
+<% @companies.each do |company| %>
+  <tr>
+      <td><%= company.name %></td>
+      <td><%= company.postcode %></td>
+      <td><%= company.active %></td>
+      <td><%= link_to 'Show', company %></td>
+      <td><%= link_to 'Edit', edit_company_path(company) %></td>
+      <td><%= link_to 'Delete', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+</tbody>
+</table>
+

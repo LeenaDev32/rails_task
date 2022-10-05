@@ -1,0 +1,75 @@
+<h1>Add User</h1>
+<%= form_for @user, html: { multipart: true } do |form| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+  <h2>
+  <%= pluralize(@user.errors.count, "error") %> prohibited this billing from being saved:
+  </h2>
+  <ul>
+<% @user.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+   <% end %>
+   </ul>
+    </div>
+<% end %>
+    
+<div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name%>
+</div><br>
+
+<div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name%>
+</div><br>
+
+<div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email%>
+</div><br>
+
+<div class="field">
+  <%= form.label :company_id %><br />
+  <%= form.select :company_id, Company.all.collect { |a| [a.name, a.id ]  } %>
+</div><br>
+
+<div class="field">
+  <%= form.label :role_id %><br />
+  <%= form.select :role_id, User::USER_ROLES.keys.to_a %>
+</div><br>
+
+<div class="field">
+    <%= form.label :monthly_charge %>
+    <%= form.text_field :monthly_charge%>
+</div><br>
+
+<div class="field">
+  <%= form.label :start_date %>
+  <%= form.date_field  :start_date%>
+</div><br>
+
+<div class="field">
+  <%= form.label :end_date %>
+  <%= form.date_field  :end_date%>
+</div><br>
+
+<div class="field">
+  <%= form.label :image %>
+  <%= form.file_field  :image%>
+</div><br>
+
+<div class="field">
+  <%= form.label :active %>
+  <%= form.check_box :active %>
+</div><br>
+
+
+<div class="field">
+  <%= form.label :notes %>
+  <%= form.cktext_area :notes, class: 'someclass', ckeditor: { language: 'uk'} %>
+</div><br>
+
+
+<%= form.submit"Save" %>
+  
+<% end %>

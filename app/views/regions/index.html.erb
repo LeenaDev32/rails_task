@@ -1,0 +1,25 @@
+<ul class="nav justify-content-center">
+<li class="nav-item">
+<%= link_to 'Add Region', new_region_path %>
+</li>
+</ul>
+<br>
+<table class="table">
+<thead>
+    <tr>
+      <th scope="col">Users</th>   
+      <th colspan="5"></th>
+    </tr>
+</thead>
+<tbody>
+<% @regions.each do |region| %>
+  <tr>
+      <td><%= region.region_name %></td>
+      <td><%= link_to 'Show', region %></td>
+      <td><%= link_to 'Edit', edit_region_path(region) %></td>
+      <td><%= link_to 'Delete', region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+</tbody>
+</table>
+
